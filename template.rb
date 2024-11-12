@@ -250,6 +250,9 @@ after_bundle do
   add_github_actions_ci
   add_rspec
   rails_command "active_storage:install"
+  rails_command "solid_cable:install"
+  rails_command "solid_cache:install"
+  rails_command "solid_queue:install"
 
   # Make sure Linux is in the Gemfile.lock for deploying
   run "bundle lock --add-platform x86_64-linux"
