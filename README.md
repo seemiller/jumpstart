@@ -32,6 +32,10 @@ You'll need the following installed to run the template successfully:
 rails new myapp -d postgresql -m https://raw.githubusercontent.com/excid3/jumpstart/master/template.rb
 ```
 
+```bash
+rails new myapp -T -m https://raw.githubusercontent.com/seemiller/jumpstart/master/template.rb
+```
+
 Or if you have downloaded this repo, you can reference template.rb locally:
 
 ```bash

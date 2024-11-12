@@ -58,7 +58,7 @@ def add_gems
   add_gem 'omniauth-twitter', '~> 1.4'
   add_gem 'pretender', '~> 0.3.4'
   add_gem 'pundit', '~> 2.1'
-  add_gem 'sidekiq', '~> 6.2'
+  # add_gem 'sidekiq', '~> 6.2'
   add_gem 'sitemap_generator', '~> 6.1'
   add_gem 'whenever', require: false
   add_gem 'responders', github: 'heartcombo/responders', branch: 'main'
@@ -192,6 +192,11 @@ def add_bootstrap
   rails_command "css:install:bootstrap"
 end
 
+def add_rspec
+  run %(bundle add rspec-rails --group development,test)
+  generate "rspec:install"
+end
+
 def add_announcements_css
   insert_into_file 'app/assets/stylesheets/application.bootstrap.scss', '@import "jumpstart/announcements";'
 end
@@ -236,13 +241,14 @@ after_bundle do
   add_announcements
   add_notifications
   add_multiple_authentication
-  add_sidekiq
+  # add_sidekiq
   add_friendly_id
   add_bootstrap
   add_whenever
   add_sitemap
   add_announcements_css
   add_github_actions_ci
+  add_rspec
   rails_command "active_storage:install"
 
   # Make sure Linux is in the Gemfile.lock for deploying
